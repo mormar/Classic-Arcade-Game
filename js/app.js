@@ -7,7 +7,8 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.positionY = [60 ,140 ,220];
-    this.x = 1;
+    this.positionX = [-100, -200, -300, -400, -500, -600];
+    this.x = this.positionX[Math.round(Math.random() * (5 - 0) + 0)]
     this.y = this.positionY[Math.round(Math.random() * (2 - 0) + 0)];
     this.speed = Math.random() * (150 - 50) + 50;
 };
@@ -19,12 +20,20 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
-    console.log(this.x);
+
+    if(window.ctx.canvas.width < Math.round(this.x)) {
+      if(allEnemies.length < maxEnemy) {
+         allEnemies.splice(allEnemies.indexOf(this),1);
+         allEnemies.push(new Enemy());
+         console.log(allEnemies.length);
+       }
+    }
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
 };
 
 // Now write your own player class
@@ -35,13 +44,18 @@ Enemy.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+
 let allEnemies = [
   new Enemy(),
   new Enemy(),
   new Enemy(),
+  new Enemy(),
+  new Enemy(),
+  new Enemy(),
+  new Enemy(),
+  new Enemy(),
 ];
-
-
+let maxEnemy = 10;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
