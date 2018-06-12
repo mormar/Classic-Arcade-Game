@@ -39,7 +39,20 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+let Player = function() {
+  this.sprite = 'images/char-cat-girl.png';
+  this.x = 200;
+  this.y = 400;
+  this.speed = 150;
+};
 
+Player.prototype.update = function(dt) {
+
+};
+
+Player.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -55,6 +68,7 @@ let allEnemies = [
   new Enemy(),
   new Enemy(),
 ];
+let player = new Player();
 let maxEnemy = 10;
 
 // This listens for key presses and sends the keys to your
@@ -68,4 +82,25 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
+
 });
+
+ Player.prototype.handleInput = function(move) {
+
+  if(move === 'left') {
+    console.log('left');
+    this.x -= 100;
+  }
+  if(move === 'up') {
+    console.log('up');
+    this.y  -= 82;
+  }
+  if(move === 'right') {
+    console.log('right')
+    this.x += 100;
+  }
+  if(move === 'down') {
+    console.log('down')
+    this.y  += 82;
+  }
+ };
