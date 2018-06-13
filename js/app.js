@@ -6,7 +6,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.positionY = [60 ,140 ,220];
+    this.positionY = [72 ,154 ,236]; // 60 140 220
     this.positionX = [-100, -200, -300, -400, -500, -600];
     this.x = this.positionX[Math.round(Math.random() * (5 - 0) + 0)]
     this.y = this.positionY[Math.round(Math.random() * (2 - 0) + 0)];
@@ -33,7 +33,6 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-
 };
 
 // Now write your own player class
@@ -47,6 +46,24 @@ let Player = function() {
 };
 
 Player.prototype.update = function(dt) {
+  for (let enemy of allEnemies) {
+  // console.log(enemy);
+  // console.log(enemy.x);
+  //console.log((Math.round(enemy.x)));
+    if((Math.round(enemy.x)+40) >= Math.round(this.x) &&
+      (Math.round(enemy.x)) <= Math.round(this.x) && (enemy.y == this.y)) {
+        console.log("Atack!");
+        player = new Player();
+    }
+  }
+  if(0 >= Math.round(this.y)) {
+    player = new Player();
+    score += 100;
+  console.log(score);
+  }
+//console.log("Player: " + Math.round(this.x));
+//console.log("Player: " + Math.round(this.y));
+
 
 };
 
@@ -60,16 +77,17 @@ Player.prototype.render = function() {
 
 let allEnemies = [
   new Enemy(),
-  new Enemy(),
-  new Enemy(),
-  new Enemy(),
-  new Enemy(),
-  new Enemy(),
-  new Enemy(),
-  new Enemy(),
+  // new Enemy(),
+  // new Enemy(),
+  // new Enemy(),
+  // new Enemy(),
+  // new Enemy(),
+  // new Enemy(),
+  // new Enemy(),
 ];
 let player = new Player();
 let maxEnemy = 10;
+let score = 0;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
