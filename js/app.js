@@ -25,7 +25,7 @@ Enemy.prototype.update = function(dt) {
       if(allEnemies.length < maxEnemy) {
          allEnemies.splice(allEnemies.indexOf(this),1);
          allEnemies.push(new Enemy());
-         console.log(allEnemies.length);
+         //console.log(allEnemies.length);
        }
     }
 };
@@ -61,8 +61,8 @@ Player.prototype.update = function(dt) {
     score += 100;
   console.log(score);
   }
-//console.log("Player: " + Math.round(this.x));
-//console.log("Player: " + Math.round(this.y));
+//console.log("Player x: " + Math.round(this.x));
+//console.log("Player y: " + Math.round(this.y));
 
 
 };
@@ -105,20 +105,20 @@ document.addEventListener('keyup', function(e) {
 
  Player.prototype.handleInput = function(move) {
 
-  if(move === 'left') {
-    console.log('left');
+  if(move === 'left' && this.x > 0 && this.x < 400 || move === 'left' && this.x == 400) {
+    // console.log('left');
     this.x -= 100;
   }
-  if(move === 'up') {
-    console.log('up');
+  if(move === 'up' && this.y >0 && this.y < 400 || move === 'up' && this.y == 400) {
+    // console.log('up');
     this.y  -= 82;
   }
-  if(move === 'right') {
-    console.log('right')
+  if(move === 'right' && this.x > 0 && this.x < 400 || move === 'right' && this.x == 0) {
+    // console.log('right')
     this.x += 100;
   }
-  if(move === 'down') {
-    console.log('down')
+  if(move === 'down' && this.y >0 && this.y < 400 || move === 'down' && this.y == -10) {
+    // console.log('down')
     this.y  += 82;
   }
  };
