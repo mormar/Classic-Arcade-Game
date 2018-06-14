@@ -42,7 +42,6 @@ let Player = function() {
   this.sprite = 'images/char-cat-girl.png';
   this.x = 200;
   this.y = 400;
-  this.speed = 150;
 };
 
 Player.prototype.update = function(dt) {
@@ -50,44 +49,73 @@ Player.prototype.update = function(dt) {
   // console.log(enemy);
   // console.log(enemy.x);
   //console.log((Math.round(enemy.x)));
-    if((Math.round(enemy.x)+40) >= Math.round(this.x) &&
-      (Math.round(enemy.x)) <= Math.round(this.x) && (enemy.y == this.y)) {
+    if(((Math.round(enemy.x)+55) >= Math.round(this.x) &&
+        (Math.round(enemy.x)) <= Math.round(this.x) && (enemy.y == this.y)) ||
+        (Math.round(enemy.x)) == Math.round(this.x) && (enemy.y == this.y) ||
+        ((Math.round(enemy.x)) >= Math.round(this.x) &&
+        (Math.round(enemy.x)-55) <= Math.round(this.x) &&
+        (enemy.y == this.y))) {
         console.log("Atack!");
         player = new Player();
     }
+    // console.log(Math.round(this.x));
+    // console.log(Math.round(enemy.x));
+    // console.log(enemy.y);
+    // console.log(this.y);
   }
   if(0 >= Math.round(this.y)) {
-    player = new Player();
-    score += 100;
+    if(((key.y-10) == this.y) && (key.x == this.x)) {
+      player = new Player();
+      score += 100;
+      key = new Key();
+    }
+    else if((key.y-10) == this.y){
+      player = new Player();
+    }
   console.log(score);
+  document.getElementById("score").innerHTML = score;
   }
 //console.log("Player x: " + Math.round(this.x));
 //console.log("Player y: " + Math.round(this.y));
-
-
 };
 
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+let Key = function() {
+  this.sprite = 'images/Key.png';
+  this.positionX = [0, 100, 200, 300, 400];
+  this.x = this.positionX[Math.round(Math.random() * (4 - 0) + 0)];
+  this.y = 0;
+}
+
+Key.prototype.update = function(dt) {
+  console.log("Key");
+};
+
+Key.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
 let allEnemies = [
   new Enemy(),
-  // new Enemy(),
-  // new Enemy(),
-  // new Enemy(),
-  // new Enemy(),
-  // new Enemy(),
-  // new Enemy(),
-  // new Enemy(),
+  new Enemy(),
+  new Enemy(),
+  new Enemy(),
+  new Enemy(),
+  new Enemy(),
+  new Enemy(),
+  new Enemy(),
+  new Enemy(),
 ];
 let player = new Player();
 let maxEnemy = 10;
 let score = 0;
+let key = new Key();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

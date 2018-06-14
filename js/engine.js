@@ -154,6 +154,8 @@ var Engine = (function(global) {
         });
 
         player.render();
+
+        key.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -173,7 +175,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-cat-girl.png'
+        'images/char-cat-girl.png',
+        'images/Key.png'
     ]);
     Resources.onReady(init);
 
