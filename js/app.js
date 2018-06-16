@@ -108,7 +108,7 @@ Player.prototype.update = function(dt) {
       score += 100;
       scoreDisplay = "Score: " + score;
       key = new Key();
-      console.log(score);
+      // console.log(score);
       document.getElementById("score").innerHTML = scoreDisplay;
       document.getElementById("finalScore").innerHTML = scoreDisplay;
     }
@@ -132,7 +132,7 @@ let Key = function() {
 }
 
 Key.prototype.update = function(dt) {
-  console.log("Key");
+  // console.log("Key");
 };
 
 Key.prototype.render = function() {

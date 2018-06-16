@@ -1,6 +1,16 @@
-frontend-nanodegree-arcade-game
-===============================
+# Classic Arcade Game
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## How to play?
+Your goal is to collect keys. Use arrows to move player use. You have to avoid enemies. One touch from enemy and your life is gone. You have only three lives, so be careful.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Goal
+Creating classic arcade game for the Front-End Web Developer Nanodegree Program in Google Developer Challenge Scholarship 2017/2018.
+
+## Contributing
+First commit is the starter code from Udacity. https://github.com/udacity/frontend-nanodegree-arcade-game
+
+## Website
+https://mormar.github.io/Classic-Arcade-Game/
+
+## Dependecies
+[FontAwesomeIcons](https://fontawesome.com)<br/>
