@@ -55,8 +55,47 @@ Player.prototype.update = function(dt) {
         ((Math.round(enemy.x)) >= Math.round(this.x) &&
         (Math.round(enemy.x)-55) <= Math.round(this.x) &&
         (enemy.y == this.y))) {
-        console.log("Atack!");
-        player = new Player();
+          life -= 1;
+          if(life == 2) {
+            let elementLife = document.getElementById("life1");
+            elementLife.classList.add("fa", "fa-heart-o");
+          }
+          if(life == 1) {
+            elementLife = document.getElementById("life2");
+            elementLife.classList.add("fa", "fa-heart-o");
+          }
+          if(life == 0) {
+            elementLife = document.getElementById("life3");
+            elementLife.classList.add("fa", "fa-heart-o");
+          }
+          if(life < 0) {
+            player = new Player();
+            let popup = document.getElementById("myPopup");
+            popup.classList.remove("none-display");
+          }
+          else {
+            player = new Player();
+          }
+          let play = document.getElementById("play").addEventListener("click", newGame);;
+        }
+
+    function newGame () {
+      elementLife = document.getElementById("life1");
+      elementLife.classList.remove("fa", "fa-heart-o");
+      elementLife.classList.add("fa", "fa-heart");
+      elementLife = document.getElementById("life2");
+      elementLife.classList.remove("fa", "fa-heart-o");
+      elementLife.classList.add("fa", "fa-heart");
+      elementLife = document.getElementById("life3");
+      elementLife.classList.remove("fa", "fa-heart-o");
+      elementLife.classList.add("fa", "fa-heart");
+      popup = document.getElementById("myPopup");
+      popup.classList.add("none-display");
+      life = 3;
+      score = 0;
+      scoreDisplay = "Score: " + score;
+      document.getElementById("score").innerHTML = scoreDisplay;
+      document.getElementById("finalScore").innerHTML = scoreDisplay;
     }
     // console.log(Math.round(this.x));
     // console.log(Math.round(enemy.x));
@@ -67,13 +106,15 @@ Player.prototype.update = function(dt) {
     if(((key.y-10) == this.y) && (key.x == this.x)) {
       player = new Player();
       score += 100;
+      scoreDisplay = "Score: " + score;
       key = new Key();
+      console.log(score);
+      document.getElementById("score").innerHTML = scoreDisplay;
+      document.getElementById("finalScore").innerHTML = scoreDisplay;
     }
     else if((key.y-10) == this.y){
       player = new Player();
     }
-  console.log(score);
-  document.getElementById("score").innerHTML = score;
   }
 //console.log("Player x: " + Math.round(this.x));
 //console.log("Player y: " + Math.round(this.y));
@@ -116,6 +157,8 @@ let player = new Player();
 let maxEnemy = 10;
 let score = 0;
 let key = new Key();
+let life = 3;
+let finalScore = 0;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

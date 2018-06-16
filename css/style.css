@@ -1,3 +1,61 @@
 body {
     text-align: center;
 }
+
+table {
+    width: 505px;
+}
+
+.table-score {
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    font-size: 2rem;
+    width: 252.5px;
+    color: #f00;
+}
+
+.none-display {
+  display: none;
+}
+
+.main-popup {
+    font-family: 'Righteous', cursive;
+    display: block;
+    z-index: 1;
+    padding-top: 16rem;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.content {
+    position: absolute;
+    top: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #F2D245;
+    width: 505px;
+    border-radius: 2.25rem;
+}
+
+.result-title {
+    font-size: 5rem;
+    color: #C30908;
+}
+
+.result {
+    font-size: 2.5rem;
+    color: #C30908;
+}
+
+.button-play {
+    font-family: 'Righteous', cursive;
+    color: #C3BCB1;
+    background-color: #C30908;
+    font-size: 4.5rem;
+    padding: 0.25rem;
+    border-radius: 1.5rem;
+    border-color: #C30908;
+    margin-bottom: 2rem;
+}
