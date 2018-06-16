@@ -1,5 +1,5 @@
 # Classic Arcade Game
-![ClassicArcadeGame](img/ClassicArcadeGame.png)
+![ClassicArcadeGame](images/ClassicArcadeGame.png)
 
 ## How to play?
 Your goal is to collect keys. Use arrows to move player use. You have to avoid enemies. One touch from enemy and your life is gone. You have only three lives, so be careful.
