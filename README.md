@@ -7,6 +7,9 @@ Your goal is to collect keys. Use arrows to move player use. You have to avoid e
 ## Goal
 Creating classic arcade game for the Front-End Web Developer Nanodegree Program in Google Developer Challenge Scholarship 2017/2018.
 
+## To load game locally
+You have to „Clone or download” this project. After that open index.html in your browser to load the game locally.
+
 ## Contributing
 First commit is the starter code from Udacity. https://github.com/udacity/frontend-nanodegree-arcade-game
 
